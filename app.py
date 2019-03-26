@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 # special python variable __name__ gives each file a unique name
 app = Flask(__name__)
@@ -16,15 +16,20 @@ stores = [
     }
 ]
 
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 # decorator
 # end point, request that it's going to understand
 
 # ! '@app.route' by default is a GET request
 
 
-@app.route('/')  # 'http://www.google.com/'
-def home():
-    return "Hello World!"
+# @app.route('/')
+# def home():
+#     return "Hello World!"
 
 
 # POST /store data: {name}
